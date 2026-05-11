@@ -1,60 +1,102 @@
-// script.js
+// Loading Screen
 
-function generateResult(){
+window.onload = function(){
 
-  let indexNumber =
-  document.getElementById("indexNumber").value;
+  setTimeout(() => {
 
-  if(indexNumber == ""){
+    document.getElementById("loader").style.display = "none";
+
+    document.getElementById("mainContent").style.display = "block";
+
+  },2000);
+
+};
+
+
+// Student Names
+const students = [
+  "",
+
+];
+
+
+// Subjects
+
+const subjects = [
+  "Mathematics",
+  "Science",
+  "English",
+  "Sinhala",
+  "History",
+  "Civic Education",
+  "Buddis",
+  "Home Science",
+  "Drama"
+];
+
+// Grades
+
+const grades = ["A","B","C","S","W"];
+
+
+// Generate Random Grade
+
+function randomGrade(){
+
+  return grades[Math.floor(Math.random() * grades.length)];
+
+}
+
+
+// Generate Results
+
+function generateResults(){
+
+  let index = document.getElementById("indexNo").value;
+
+  if(index === ""){
+
     alert("Please Enter Index Number");
+
     return;
+
   }
 
-  document.getElementById("showIndex").innerText =
-  indexNumber;
+  let randomStudent =
+    students[Math.floor(Math.random() * students.length)];
 
-  let subjects = [
+  document.getElementById("studentName").innerText =
+    randomStudent;
 
-    "Mathematics",
-    "Science",
-    "English",
-    "Sinhala",
-    "History",
-    "ICT",
-    "Commerce",
-    "Buddhism"
+  document.getElementById("studentIndex").innerText =
+    index;
 
-  ];
+  let tableBody =
+    document.getElementById("tableBody");
 
-  let grades = ["A","B","C","S"];
-
-  let resultTable =
-  document.getElementById("resultTable");
-
-  resultTable.innerHTML = "";
+  tableBody.innerHTML = "";
 
   subjects.forEach(subject => {
 
-    let randomGrade =
-    grades[Math.floor(Math.random()*grades.length)];
+    let grade = randomGrade();
 
-    resultTable.innerHTML += `
-
+    let row = `
       <tr>
         <td>${subject}</td>
-        <td>${randomGrade}</td>
-      </tr>
 
+        <td class="${
+          grade === "W" ? "fail" : "pass"
+        }">
+          ${grade}
+        </td>
+      </tr>
     `;
 
+    tableBody.innerHTML += row;
+
   });
 
-  document.getElementById("resultSheet")
-  .style.display = "block";
-
-  document.getElementById("resultSheet")
-  .scrollIntoView({
-    behavior:"smooth"
-  });
+  document.getElementById("resultBox").style.display =
+    "block";
 
 }
