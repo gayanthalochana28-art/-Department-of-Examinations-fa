@@ -1,0 +1,107 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O/L Result Sheet 2025 (2026)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="background"></div>
+
+  <div class="container">
+
+    <div class="main-card">
+
+      <div class="top-logo">
+        <h1>Department of Examinations - Sri Lanka</h1>
+        <p>G.C.E Ordinary Level Examination Results 2025 (2026)</p>
+      </div>
+
+      <div class="form-area">
+
+        <div class="input-group">
+          <label>Select Examination</label>
+
+          <select id="exam">
+            <option>G.C.E O/L Examination 2025 (2026)</option>
+            <option>G.C.E A/L Examination 2025</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Enter Index Number</label>
+
+          <input
+            type="text"
+            id="indexNumber"
+            placeholder="Enter Your Index Number"
+          >
+        </div>
+
+        <button onclick="generateResult()">
+          View Result
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- RESULT SHEET -->
+
+    <div class="result-sheet" id="resultSheet">
+
+      <div class="sheet-header">
+        <h2>Examination Result Sheet</h2>
+      </div>
+
+      <div class="student-details">
+
+        <div class="detail-box">
+          <span>Index Number</span>
+          <h3 id="showIndex"></h3>
+        </div>
+
+        <div class="detail-box">
+          <span>School</span>
+          <h3>N/WIB Pahala Ogodapola Pihibuwa</h3>
+        </div>
+
+        <div class="detail-box">
+          <span>District</span>
+          <h3>Kurunegala</h3>
+        </div>
+
+      </div>
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Subject</th>
+            <th>Grade</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="resultTable">
+
+        </tbody>
+
+      </table>
+
+      <div class="final-status">
+        <h1>PASS</h1>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
