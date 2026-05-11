@@ -28,10 +28,10 @@ const subjects = [
   "English",
   "Sinhala",
   "History",
-  "Geograpy",
-  "Buddis",
-  "ICT",
-  "Art"
+  "Civic Education",
+  "Buddhist",
+  "Helth",
+  "Dance"
 ];
 
 // Grades
