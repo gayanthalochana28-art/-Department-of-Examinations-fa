@@ -1,104 +1,167 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O/L Result Sheet 2025 (2026)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Department of Examinations Sri Lanka</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="background"></div>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <h2>Loading Results Portal...</h2>
+  </div>
 
-  <div class="container">
+  <!-- Main Content -->
+  <div class="main-content" id="mainContent">
 
-    <div class="main-card">
+    <!-- Header -->
+    <header class="header">
 
-      <div class="top-logo">
-        <h1>Department of Examinations - Sri Lanka</h1>
-        <p>G.C.E Ordinary Level Examination Results 2025 (2026)</p>
+      <div class="logo-area">
+        <img src="download.jpg" alt="Sri Lanka Logo">
       </div>
 
-      <div class="form-area">
+      <div class="title-area">
+        <h1>Department of Examinations, Sri Lanka</h1>
+        <p>G.C.E Ordinary Level Examination Results</p>
+      </div>
 
-        <div class="input-group">
-          <label>Select Examination</label>
+    </header>
 
-          <select id="exam">
-            <option>G.C.E O/L Examination 2025 (2026)</option>
-            <option>G.C.E A/L Examination 2025</option>
-          </select>
-        </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#">Home</a>
+      <a href="#">School Exam Results</a>
+      <a href="#">Exam Calendar</a>
+      <a href="#">Certificates</a>
+      <a href="#">Contact Us</a>
+    </nav>
 
-        <div class="input-group">
-          <label>Enter Index Number</label>
+    <!-- Main Container -->
+    <div class="container">
 
-          <input
-            type="text"
-            id="indexNumber"
-            placeholder="Enter Your Index Number"
-          >
-        </div>
+      <h2 class="title">FIND YOUR EXAM RESULTS HERE</h2>
 
-        <button onclick="generateResult()">
-          View Result
+      <div class="notice">
+        Examination results are the property of the Government of Sri Lanka.
+      </div>
+
+      <div class="notice">
+        ඔබගේ සහතිකපත්‍රය මාර්ගගතව ලබා ගැනීම සඳහා www.doenets.lk ඔස්සේ විභාග දෙපාර්තමේන්තු නිල වෙබ් අඩවිය වෙත ගොස් "Online Certificate (G.C.E (O/L) and G.C.E (A/L))" වෙත පිවිසෙන්න.
+
+To obtain your certificate online, kindly visit the official website of the Department of Examinations via www.doenets.lk and then click on "Online Certificate (G.C.E. (O/L) and G.C.E. (A/L))".
+
+உங்கள் பரீட்சைச் சான்றிதழை நிகழ்நிலையில் பெற்றுக்கொள்ள www.doenets.lk ஊடாக இலங்கைப் பரீட்சைத் திணைக்களத்தின் உத்தியோகபூர்வ இணையத்தளமான "Online Certificate (G.C.E. (O/L) and G.C.E. (A/L))" இற்குப் பிரவேசிக்கவும்.
+      </div>
+
+      <!-- Form -->
+      <div class="form-box">
+
+        <select>
+          <option>2025 G.C.E O/L Examination</option>
+          <option>2026 G.C.E O/L Examination</option>
+        </select>
+
+        <select>
+          <option>2025</option>
+          <option>2026</option>
+        </select>
+
+        <input type="text" id="indexNo" placeholder="Enter Index Number">
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button class="submit-btn" onclick="generateResults()">
+          Submit
         </button>
 
+        <button class="reset-btn" onclick="location.reload()">
+          Reset
+        </button>
       </div>
 
-    </div>
+      <!-- Results -->
+      <div class="result-box" id="resultBox">
 
+        <h2>Candidate Result Sheet</h2>
 
-    <!-- RESULT SHEET -->
-
-    <div class="result-sheet" id="resultSheet">
-
-      <div class="sheet-header">
-        <h2>Examination Result Sheet</h2>
-      </div>
-
-      <div class="student-details">
-
-        <div class="detail-box">
-          <span>Index Number</span>
-          <h3 id="showIndex"></h3>
+        <div class="student-details">
+          <p><strong>Name :</strong> <span id="studentName"></span></p>
+          <p><strong>Index Number :</strong> <span id="studentIndex"></span></p>
         </div>
 
-        <div class="detail-box">
-          <span>School</span>
-          <h3>N/WIB Pahala Ogodapola Pihibuwa</h3>
-        </div>
-
-        <div class="detail-box">
-          <span>District</span>
-          <h3>Kurunegala</h3>
-        </div>
-
-      </div>
-
-      <table>
-
-        <thead>
+        <table>
 
           <tr>
             <th>Subject</th>
             <th>Grade</th>
           </tr>
 
-        </thead>
+          <tbody id="tableBody"></tbody>
 
-        <tbody id="resultTable">
+        </table>
 
-        </tbody>
-
-      </table>
-
-      <div class="final-status">
-        <h1>PASS</h1>
       </div>
 
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+      <div class="footer-container">
+
+        <!-- Footer Logo -->
+        <div class="footer-box">
+
+          <img src="download.jpg" class="footer-logo">
+
+          <h3>Contact Us</h3>
+
+          <p>
+            Department of Examinations Sri Lanka,<br>
+            Pelawatta, Battaramulla, Sri Lanka.
+          </p>
+
+          <p><strong>E-Mail :</strong> exams@doenets.lk</p>
+
+          <p><strong>Hotline :</strong> 1911</p>
+
+          <p>
+            <strong>Telephone Number :</strong><br>
+            +94 11 2786200<br>
+            +94 11 2784203-4
+          </p>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-box">
+
+          <h3>Quick Links</h3>
+
+          <a href="#">School Exam Results</a>
+          <a href="#">Exam Calendar</a>
+          <a href="#">Services</a>
+          <a href="#">Quick Links</a>
+          <a href="#">Downloads</a>
+          <a href="#">Gallery</a>
+          <a href="#">Contact Us</a>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Department of Examinations, Sri Lanka
+      </div>
+
+    </footer>
 
   </div>
 
