@@ -30,7 +30,7 @@ const subjects = [
   "History",
   "Geograpy",
   "Buddis",
-  "Home Science",
+  "ICT",
   "Art"
 ];
 
